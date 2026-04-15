@@ -1,0 +1,437 @@
+/* ==========================================================================
+   1. 基本設定（変数・全体）
+   ========================================================================== */
+:root {
+    --brand-color: #cc217f;
+    --text-color: #333;
+    --bg-gray: #f9f9f9;
+}
+
+body {
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    color: var(--text-color);
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #fff;
+}
+
+/* ==========================================================================
+   2. ヘッダー（PC・共通）
+   ========================================================================== */
+header {
+    padding: 10px 0;
+    background-color: #fff;
+    border-bottom: 1px solid #eee;
+}
+
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: nowrap;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.logo {
+    height: 180px; /* PCでのサイズ */
+    width: auto;
+    display: block;
+    margin-right: -40px; /* ロゴと文字を近づける */
+}
+
+.main-title {
+    margin: 0;
+    padding: 0;
+    font-size: 2rem;
+    white-space: nowrap;
+    line-height: 1;
+    color: var(--text-color);
+}
+
+/* 詳細ページ（.detail-page）でのPC表示上書き */
+.detail-page .logo {
+    height: 150px; 
+}
+
+/* ==========================================================================
+   3. 店舗一覧・カード設定
+   ========================================================================== */
+.store-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.store-card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    background: #fff;
+}
+
+.store-image {
+    height: 180px;
+    background: #eee;
+    margin-bottom: 15px;
+    overflow: hidden;
+}
+
+.store-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* ==========================================================================
+   4. 店舗詳細ページ用コンポーネント
+   ========================================================================== */
+.section {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.section-title {
+    border-left: 5px solid var(--brand-color);
+    padding-left: 15px;
+    margin-bottom: 20px;
+}
+
+.content-box {
+    background: #fdfdfd;
+    padding: 20px;
+    border: 1px solid #eee;
+}
+
+.breadcrumb {
+    padding: 20px;
+    background: #eee;
+    font-size: 0.9rem;
+}
+
+/* 料金表 */
+.price-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.price-table th, .price-table td {
+    border: 1px solid #ddd;
+    padding: 15px;
+    text-align: left;
+}
+
+.price-table th {
+    background: #f9f9f9;
+    width: 30%;
+}
+
+/* スタジオの特徴 */
+.feature-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.feature-image {
+    width: 100%;
+    height: auto;
+    max-height: 400px;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.feature-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* トレーナー紹介 */
+.trainer-list {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.trainer-card {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    background: #fff;
+    padding: 20px;
+    border: 1px solid #eee;
+    border-radius: 12px;
+}
+
+.trainer-photo {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    overflow: hidden;
+    flex-shrink: 0;
+    border: 3px solid var(--brand-color);
+}
+
+.trainer-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* アクセス情報 */
+.access-info p {
+    margin-bottom: 15px;
+    border-bottom: 1px solid #f0f0f0;
+    padding-bottom: 10px;
+}
+
+.access-info p:last-child {
+    border-bottom: none;
+}
+
+.access-info strong {
+    color: var(--brand-color);
+    display: inline-block;
+    margin-bottom: 5px;
+}
+
+.map-placeholder {
+    margin-top: 20px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.map-placeholder iframe {
+    width: 100% !important;
+}
+
+/* ==========================================================================
+   5. ボタン・固定要素
+   ========================================================================== */
+.btn {
+    display: block;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    margin: 10px 0;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn.solid {
+    background-color: var(--brand-color);
+    color: #fff;
+}
+
+.btn.outline {
+    border: 2px solid var(--brand-color);
+    color: var(--brand-color);
+}
+
+.btn:hover, .btn-reserve:hover {
+    opacity: 0.8;
+    transform: translateY(-2px);
+}
+
+.btn-reserve {
+    display: flex;          /* Instagramボタンに合わせてflexに変更 */
+    align-items: center;    /* 文字を上下中央に */
+    justify-content: center; /* 文字を左右中央に */
+    background: var(--brand-color);
+    color: #fff;
+    text-align: center;
+    padding: 12px 30px;     /* Instagramボタンと同じくらいの余白に調整 */
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1rem;        /* 1.2remから少し下げてサイズを合わせる */
+    border-radius: 50px;
+    max-width: 300px;       /* Instagramボタンの max-width と同じ数値にする */
+    margin: 20px auto;      /* 上下に余白を作りつつ、左右中央寄せ */
+    box-shadow: 0 4px 15px rgba(204, 33, 127, 0.3);
+    transition: 0.3s;
+}
+
+.sticky-footer {
+    position: sticky;
+    bottom: 20px;
+    padding: 10px;
+    z-index: 100;
+}
+
+/* SNSセクションのレイアウト */
+.sns-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.sns-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 12px 30px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    color: #fff;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 100%;
+    max-width: 350px;
+}
+
+/* Instagram専用カラー（グラデーション） */
+.sns-button.instagram {
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+    box-shadow: 0 4px 15px rgba(220, 39, 67, 0.3);
+}
+
+.sns-button:hover {
+    transform: scale(1.05); /* 少しだけ大きくして「押せる感」を出す */
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+.sns-icon {
+    font-size: 1.4rem;
+}
+
+.sns-text {
+    font-size: 1rem;
+}
+
+/* --- SNSボタンのレイアウト --- */
+.sns-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.sns-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;           /* アイコンと文字の間隔 */
+    padding: 12px 30px;
+    border-radius: 50px; /* 丸みのあるボタン */
+    text-decoration: none;
+    font-weight: bold;
+    color: #fff;
+    transition: 0.3s;
+    width: 100%;
+    max-width: 300px;    /* ボタンが広がりすぎないように制限 */
+}
+
+/* Instagram専用カラー（公式に近いグラデーション） */
+.sns-button.instagram {
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+    box-shadow: 0 4px 15px rgba(220, 39, 67, 0.3);
+}
+
+.sns-button:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+.sns-icon {
+    font-size: 1.6rem; /* アイコンを少し大きく */
+}
+
+/* ==========================================================================
+   6. スマホ用設定（画面幅 600px以下）
+   ========================================================================== */
+@media (max-width: 600px) {
+    
+    /* 1. 全体のロゴ・タイトルサイズ */
+    .logo {
+        height: 80px !important;
+        margin-right: -20px !important;
+        margin-left: -20px !important;
+    }
+    .main-title {
+        font-size: 1.2rem !important;
+    }
+
+    /* 2. 店舗一覧グリッド（強制2列） */
+    .store-container {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr !important;
+        gap: 10px !important;
+        padding: 10px !important;
+    }
+
+    /* 3. 店舗カード本体 */
+    .store-card {
+        padding: 5px 2px !important; /* カード全体の余白を最小限に */
+    }
+
+   /* 4. 写真の高さと横幅の調整（ボタンの端と揃える） */
+    .store-image {
+        height: 90px !important;
+        margin-bottom: 2px !important;
+        /* 左右に 3px の余白を入れることで、下のボタンの端とラインが揃います */
+        margin-left: 3px !important;
+        margin-right: 3px !important;
+        border-radius: 4px; /* 少し角を丸くするとボタンの雰囲気に馴染みます */
+        overflow: hidden;   /* 角丸を写真にも適用させるため */
+    }
+
+   /* 5--- 店舗名のサイズ調整と余白の追加 --- */
+    .store-card h2 {
+        font-size: 0.85rem !important; 
+        /* 1つ目の数値が「上下」、2つ目が「左右」の余白です */
+        margin: 8px 0 !important;      /* 0から8pxに広げてみました。お好みで5px〜10pxで調整 */
+        padding: 0 !important;         
+        line-height: 1.2 !important;  
+        word-break: break-all;        
+    }
+
+
+    /* 6. 住所（2列だと邪魔になりやすいため、かなり小さく） */
+    .store-card p {
+        font-size: 0.7rem !important;
+        margin-top: 2px !important;
+        margin-bottom: 4px !important;
+        color: #777;
+        /* もしさらにスッキリさせたいなら、ここを display: none !important; に */
+    }
+
+    /* 7. カード内のボタン */
+    .btn {
+        padding: 6px 2px !important; /* ボタンの高さを抑える */
+        font-size: 0.65rem !important;
+        margin: 3px 3px !important;
+        letter-spacing: -0.5px;
+    }
+
+    /* 8. SNSボタン（Instagramなど）の調整 */
+    .sns-button {
+        padding: 10px 15px !important;
+        font-size: 0.85rem !important;
+        max-width: 180px !important;
+        margin: 0 auto !important;
+    }
+
+    /* 9. 店舗詳細ページ用の調整（トレーナー・予約など） */
+    .trainer-card {
+        flex-direction: column !important;
+        text-align: center !important;
+    }
+    .btn-reserve {
+        width: 100% !important;
+        font-size: 1.1rem !important;
+        padding: 15px !important;
+    }
+}
